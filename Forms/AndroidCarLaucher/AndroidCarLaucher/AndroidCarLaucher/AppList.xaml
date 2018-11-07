@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AndroidCarLaucher"
+            
+            xmlns:androidWidget="clr-namespace:Android.Widget;assembly=Mono.Android;targetPlatform=Android"
+             xmlns:formsandroid="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Platform.Android;targetPlatform=Android"
+             x:Class="AndroidCarLaucher.AppList" Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <local:AppListModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal" Grid.Row="0">
+                <Image x:Name="ImgPreview" Aspect="AspectFit" />
+            </StackLayout>
+            <ListView Grid.Row="1" ItemsSource="{Binding Applications}" SelectedItem="{Binding SelectedApp, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45"/>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <BoxView Grid.Column="0" BackgroundColor="Blue" />
+                                <Image Grid.Column="0" Source="{Binding AppIconSource}" HeightRequest="32" WidthRequest="32" Aspect="AspectFit"/>
+                                
+                                <!--<Image Grid.Column="0" Source="{Binding AppIconSource}" MinimumHeightRequest="45" MinimumWidthRequest="45"/>-->
+                                <Label Grid.Column="1" Text="{Binding Label}" />
+                            </Grid>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!-- xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"-->
+            <!--<flv:FlowListView FlowColumnCount="5" SeparatorVisibility="None" HasUnevenRows="false"
+	FlowItemTappedCommand="{Binding ItemTappedCommand}" FlowLastTappedItem="{Binding SelectedApp}"
+	FlowItemsSource="{Binding Applications}">
+
+                <flv:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+                        <Label HorizontalOptions="Fill" VerticalOptions="Fill" 
+				XAlign="Center" YAlign="Center" Text="{Binding Title}"/>
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+
+            </flv:FlowListView>-->
+        </Grid>
+        <!--<ListView ItemsSource="{Binding Applications}" ItemSelected="{Binding SelectedApp}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+    </ContentPage.Content>
+</ContentPage>

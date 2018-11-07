@@ -3,3 +3,6 @@
 ################################################################################
 
 /Forms/AndroidCarLaucher/AndroidCarLaucher/AndroidCarLaucher/bin/Debug/netstandard2.0
+/Forms/AndroidCarLaucher/AndroidCarLaucher/AndroidCarLaucher/obj
+/Forms/AndroidCarLaucher/AndroidCarLaucher/AndroidCarLaucher.Android/bin/Debug
+/Forms/AndroidCarLaucher/AndroidCarLaucher/AndroidCarLaucher.Android/obj

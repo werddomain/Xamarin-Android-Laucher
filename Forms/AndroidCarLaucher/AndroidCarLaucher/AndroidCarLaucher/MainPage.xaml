@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AndroidCarLaucher"
+            
+             x:Class="AndroidCarLaucher.MainPage" NavigationPage.HasNavigationBar="false">
+    <ContentPage.BindingContext>
+        <local:MainPageModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--<BoxView Grid.Row="0" BackgroundColor="Black" Color="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+        </BoxView>-->
+        <Grid Grid.Row="0" BackgroundColor="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*" />
+                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="25*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="0">
+                <Button Image="Gear_32.png" WidthRequest="60"/>
+            </StackLayout>
+            <StackLayout Grid.Column="1" Spacing="0" Padding="0">
+                <Label Text="{Binding Time}" TextColor="White" FontSize="23"  HorizontalTextAlignment="Center" Margin="0,-2"/>
+                <Label Text="{Binding Date}" TextColor="White" FontSize="13"  HorizontalTextAlignment="Center" Margin="0"/>
+            </StackLayout>
+            <StackLayout Grid.Column="2" HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+
+
+                <Button Command="{Binding ViewAppsCmd}" Image="Grid_32.png" WidthRequest="60"/>
+            </StackLayout>
+        </Grid>
+        
+    </Grid>
+
+</ContentPage>
